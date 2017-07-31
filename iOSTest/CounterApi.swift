@@ -140,14 +140,12 @@ class CountersApi {
               let newCount = Counter(id: counterId, title: counterTitle, count: countValue)
               counters.append(newCount)
             }
-            completion(counters)           
+            completion(counters)
           case .failure(_):
             completion(nil)
             break
           }
       }
     }
-    
   }
-  
 }
