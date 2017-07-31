@@ -16,24 +16,30 @@ class CounterFormViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      viewModel = CounterFormViewModel()
     }
+  
+  var viewModel: CounterFormViewModel! {
+    didSet {
+      oldValue?.viewDelegate = nil
+      viewModel?.viewDelegate = self
+    }
+  }
   
   // MARK: - Actions
   @IBAction func addCounterAction(_ sender: UIButton) {
-    CountersApi.sharedInstance.createCounters(title: nameCounterTextField.text!, {(counters) -> Void in
-      if(counters != nil){
-        let counterDataDict:[String : [Counter?]] = ["counters" : counters!]
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: counterNotification), object: self,userInfo: counterDataDict)
-        
-        self.navigationController?.popViewController(animated: true)
-      }
-      else{
-        let alert = UIAlertController(title: "Oppss", message: "There was an error", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Acept", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-      }
-      
-    })
+    viewModel.createCounter(title: nameCounterTextField.text!)
+  }
+}
+
+extension CounterFormViewController : CounterFormViewModelViewDelegate {
+  func counterFormViewModelDidAddCounter(_ viewModel: CounterFormViewModel, counterDataDic: [String : [Counter?]]) {
+    NotificationCenter.default.post(name: NSNotification.Name(rawValue: counterNotification), object: self,userInfo: counterDataDic)    
+    self.navigationController?.popViewController(animated: true)
+  }
+  func counterFormViewModelDidFoundError(_ viewModel: CounterFormViewModel) {
+    let alert = UIAlertController(title: "Oppss", message: "There was an error", preferredStyle: UIAlertControllerStyle.alert)
+    alert.addAction(UIAlertAction(title: "Acept", style: UIAlertActionStyle.default, handler: nil))
+    self.present(alert, animated: true, completion: nil)
   }
 }
