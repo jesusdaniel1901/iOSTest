@@ -31,14 +31,11 @@ class ListViewCounterController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     viewModel = ListCounterViewModel()
+    loadData()
     registerXibs()
     setDelegates()
     setObservers()
     setTableViewProperties()    
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    viewModel.loadCounters()
   }
   
   func registerXibs(){
@@ -63,6 +60,19 @@ class ListViewCounterController: UIViewController {
   func setObservers(){
     NotificationCenter.default.addObserver(self, selector: #selector(ListViewCounterController.updateCounterList(_:)), name: NSNotification.Name(rawValue: counterNotification), object: nil)
   }
+  
+  func loadData(){
+    viewModel.loadCounters()
+  }
+  
+  func setDefaultLabels(){
+    
+  }
+  
+  @IBAction func reloadAction(_ sender: UIBarButtonItem) {
+    loadData()
+  }
+  
 }
 
 // MARK: - UITableViewDelegate
@@ -124,7 +134,7 @@ extension ListViewCounterController : ListCounterViewModelViewDelegate {
   func listCounterViewModelDidFinishLoading(_ viewModel: ListCounterViewModel) {
     self.counterTableView.reloadData()
     let totalCounterValue = viewModel.getTotalCountersLabel()
-    if(totalCounterValue == 0) {
+    if(totalCounterValue == 0) {      
       totalCounters.text = "Empty"
     }
     else {

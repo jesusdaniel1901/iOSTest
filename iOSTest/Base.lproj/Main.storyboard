@@ -52,6 +52,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zEl-ih-YEl">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="Hwn-ig-30N">
+                            <connections>
+                                <action selector="reloadAction:" destination="BYZ-38-t0r" id="umQ-lK-wev"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bQW-Wh-3oU">
                             <connections>
                                 <segue destination="whb-e7-sj3" kind="show" id="rAD-VV-z1s"/>

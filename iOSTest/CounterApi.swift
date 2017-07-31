@@ -29,21 +29,15 @@ class CountersApi {
       .responseJSON { response in
         switch response.result {
         case .success(let jsonDictionary):
-          do {
-            let counterJson = JSON(jsonDictionary)
-            print(counterJson)
-            for (_,subJson):(String, JSON) in counterJson {
-              let counterId = subJson["id"].string!
-              let counterTitle = subJson["title"].string!
-              let countValue = subJson["count"].int!
-              let newCount = Counter(id: counterId, title: counterTitle, count: countValue)
-              counters.append(newCount)
-            }
-            completion(counters)
-          } catch {
-            completion(nil)
+          let counterJson = JSON(jsonDictionary)
+          for (_,subJson):(String, JSON) in counterJson {
+            let counterId = subJson["id"].string!
+            let counterTitle = subJson["title"].string!
+            let countValue = subJson["count"].int!
+            let newCount = Counter(id: counterId, title: counterTitle, count: countValue)
+            counters.append(newCount)
           }
-          
+          completion(counters)
         case .failure(_):
           completion(nil)
           break
@@ -62,20 +56,15 @@ class CountersApi {
       .responseJSON { response in
         switch response.result {
         case .success(let jsonDictionary):
-          do {
-            let counterJson = JSON(jsonDictionary)
-            for (_,subJson):(String, JSON) in counterJson {
-              let counterId = subJson["id"].string!
-              let counterTitle = subJson["title"].string!
-              let countValue = subJson["count"].int!
-              let newCount = Counter(id: counterId, title: counterTitle, count: countValue)
-              counters.append(newCount)
-            }
-            completion(counters)
-          } catch {
-            completion(nil)
+          let counterJson = JSON(jsonDictionary)
+          for (_,subJson):(String, JSON) in counterJson {
+            let counterId = subJson["id"].string!
+            let counterTitle = subJson["title"].string!
+            let countValue = subJson["count"].int!
+            let newCount = Counter(id: counterId, title: counterTitle, count: countValue)
+            counters.append(newCount)
           }
-          
+          completion(counters)
         case .failure(_):
           completion(nil)
           break
@@ -94,20 +83,15 @@ class CountersApi {
       .responseJSON { response in
         switch response.result {
         case .success(let jsonDictionary):
-          do {
-            let counterJson = JSON(jsonDictionary)
-            for (_,subJson):(String, JSON) in counterJson {
-              let counterId = subJson["id"].string!
-              let counterTitle = subJson["title"].string!
-              let countValue = subJson["count"].int!
-              let newCount = Counter(id: counterId, title: counterTitle, count: countValue)
-              counters.append(newCount)
-            }
-            completion(counters)
-          } catch {
-            completion(nil)
+          let counterJson = JSON(jsonDictionary)
+          for (_,subJson):(String, JSON) in counterJson {
+            let counterId = subJson["id"].string!
+            let counterTitle = subJson["title"].string!
+            let countValue = subJson["count"].int!
+            let newCount = Counter(id: counterId, title: counterTitle, count: countValue)
+            counters.append(newCount)
           }
-          
+          completion(counters)
         case .failure(_):
           completion(nil)
           break
@@ -127,20 +111,15 @@ class CountersApi {
         .responseJSON { response in
           switch response.result {
           case .success(let jsonDictionary):
-            do {
-              let counterJson = JSON(jsonDictionary)
-              for (_,subJson):(String, JSON) in counterJson {
-                let counterId = subJson["id"].string!
-                let counterTitle = subJson["title"].string!
-                let countValue = subJson["count"].int!
-                let newCount = Counter(id: counterId, title: counterTitle, count: countValue)
-                counters.append(newCount)
-              }
-              completion(counters)
-            } catch {
-              completion(nil)
+            let counterJson = JSON(jsonDictionary)
+            for (_,subJson):(String, JSON) in counterJson {
+              let counterId = subJson["id"].string!
+              let counterTitle = subJson["title"].string!
+              let countValue = subJson["count"].int!
+              let newCount = Counter(id: counterId, title: counterTitle, count: countValue)
+              counters.append(newCount)
             }
-            
+            completion(counters)
           case .failure(_):
             completion(nil)
             break
@@ -153,20 +132,15 @@ class CountersApi {
         .responseJSON { response in
           switch response.result {
           case .success(let jsonDictionary):
-            do {
-              let counterJson = JSON(jsonDictionary)
-              for (_,subJson):(String, JSON) in counterJson {
-                let counterId = subJson["id"].string!
-                let counterTitle = subJson["title"].string!
-                let countValue = subJson["count"].int!
-                let newCount = Counter(id: counterId, title: counterTitle, count: countValue)
-                counters.append(newCount)
-              }
-              completion(counters)
-            } catch {
-              completion(nil)
+            let counterJson = JSON(jsonDictionary)
+            for (_,subJson):(String, JSON) in counterJson {
+              let counterId = subJson["id"].string!
+              let counterTitle = subJson["title"].string!
+              let countValue = subJson["count"].int!
+              let newCount = Counter(id: counterId, title: counterTitle, count: countValue)
+              counters.append(newCount)
             }
-            
+            completion(counters)           
           case .failure(_):
             completion(nil)
             break
