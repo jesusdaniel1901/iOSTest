@@ -32,11 +32,14 @@ class CounterFormViewController: UIViewController {
   }
 }
 
+// MARK: - CounterFormViewModelViewDelegate
 extension CounterFormViewController : CounterFormViewModelViewDelegate {
+  
   func counterFormViewModelDidAddCounter(_ viewModel: CounterFormViewModel, counterDataDic: [String : [Counter?]]) {
     NotificationCenter.default.post(name: NSNotification.Name(rawValue: counterNotification), object: self,userInfo: counterDataDic)    
     self.navigationController?.popViewController(animated: true)
   }
+  
   func counterFormViewModelDidFoundError(_ viewModel: CounterFormViewModel) {
     let alert = UIAlertController(title: "Oppss", message: "There was an error", preferredStyle: UIAlertControllerStyle.alert)
     alert.addAction(UIAlertAction(title: "Acept", style: UIAlertActionStyle.default, handler: nil))

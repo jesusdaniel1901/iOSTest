@@ -16,15 +16,16 @@ class ListViewCounterController: UIViewController {
   @IBOutlet weak var counterTableView: UITableView!
   @IBOutlet weak var totalCounters: UILabel!
   
+  
+  
+  // MARK: - Properties
+  var counters = [Counter]()
   var viewModel: ListCounterViewModel! {
     didSet {
       oldValue?.viewDelegate = nil
       viewModel?.viewDelegate = self
     }
   }
-  
-  // MARK: - Properties
-  var counters = [Counter]()
   
   // MARK: - LifeCicle
   override func viewDidLoad() {

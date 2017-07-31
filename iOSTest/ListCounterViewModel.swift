@@ -9,6 +9,7 @@
 import UIKit
 
 protocol ListCounterViewModelViewDelegate: class {
+  
   func listCounterViewModelDidFinishLoading(_ viewModel: ListCounterViewModel)
   func didNotFoundCounters(_ viewModel: ListCounterViewModel) 
 

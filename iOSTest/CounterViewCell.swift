@@ -17,26 +17,17 @@ protocol StepperViewDelegate{
 
 class CounterViewCell: UITableViewCell {
   
-  
+  // MARK: - Outlets
   @IBOutlet weak var counterTitleLabel: UILabel!
   
   @IBOutlet weak var counterStepper: UIStepper!
   
   @IBOutlet weak var countLabel: UILabel!
   
+  // MARK: - Properties
   var delegate : StepperViewDelegate?
   
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+  // MARK: - Actions  
   @IBAction func stepperAction(_ sender: UIStepper) {
     self.delegate?.didTapStepper(value: Int(sender.value),stepperTag: counterStepper.tag)
   }
