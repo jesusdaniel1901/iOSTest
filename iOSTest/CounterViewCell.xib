@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="counterCell" rowHeight="80" id="KGk-i7-Jjw" customClass="CounterViewCell" customModule="iOSTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="250" height="249.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bcz-ch-R2u">
+                        <rect key="frame" x="8" y="114" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="gch-Gn-5ZL">
+                        <rect key="frame" x="98" y="110" width="94" height="29"/>
+                        <connections>
+                            <action selector="stepperAction:" destination="KGk-i7-Jjw" eventType="valueChanged" id="Esx-Xy-TdK"/>
+                        </connections>
+                    </stepper>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwY-7q-p6B">
+                        <rect key="frame" x="200" y="114" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="leadingMargin" secondItem="Bcz-ch-R2u" secondAttribute="leading" id="11I-gN-iWM"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="XwY-7q-p6B" secondAttribute="trailing" id="E8O-IE-6kl"/>
+                    <constraint firstItem="gch-Gn-5ZL" firstAttribute="centerY" secondItem="Bcz-ch-R2u" secondAttribute="centerY" id="PXQ-9B-qVB"/>
+                    <constraint firstItem="Bcz-ch-R2u" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VnU-fO-2qV"/>
+                    <constraint firstItem="XwY-7q-p6B" firstAttribute="leading" secondItem="gch-Gn-5ZL" secondAttribute="trailing" constant="8" symbolic="YES" id="i6Q-KS-tpT"/>
+                    <constraint firstItem="XwY-7q-p6B" firstAttribute="centerY" secondItem="gch-Gn-5ZL" secondAttribute="centerY" id="tm1-zW-1C9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="countLabel" destination="XwY-7q-p6B" id="Met-AJ-mdp"/>
+                <outlet property="counterStepper" destination="gch-Gn-5ZL" id="A4a-qX-AXg"/>
+                <outlet property="counterTitleLabel" destination="Bcz-ch-R2u" id="ZCx-iX-Bwu"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

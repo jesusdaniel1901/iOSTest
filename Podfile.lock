@@ -1,0 +1,18 @@
+PODS:
+  - Alamofire (4.5.0)
+  - SwiftyJSON (3.1.4)
+  - Unbox (2.5.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - SwiftyJSON
+  - Unbox
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Unbox: 30e437e6151a6de16139375fd4e8dd9a664cfbf7
+
+PODFILE CHECKSUM: 7292af5f2eee0aa3001df93e347a143ecbe25e9a
+
+COCOAPODS: 1.2.1
