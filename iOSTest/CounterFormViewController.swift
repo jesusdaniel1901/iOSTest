@@ -14,6 +14,7 @@ class CounterFormViewController: UIViewController {
   // MARK: - Outlets
   @IBOutlet weak var nameCounterTextField: UITextField!
 
+  // MARK: - Lifecicly
     override func viewDidLoad() {
         super.viewDidLoad()
     }
